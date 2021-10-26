@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{7274DBB5-0EC9-4992-B1F3-C075E0DEAB35}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Example\ProjectNeuralAPIExample.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ProjectNeuralAPIExample">
+        <MSBuild Projects="Example\ProjectNeuralAPIExample.dproj"/>
+    </Target>
+    <Target Name="ProjectNeuralAPIExample:Clean">
+        <MSBuild Projects="Example\ProjectNeuralAPIExample.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ProjectNeuralAPIExample:Make">
+        <MSBuild Projects="Example\ProjectNeuralAPIExample.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ProjectNeuralAPIExample"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ProjectNeuralAPIExample:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ProjectNeuralAPIExample:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
